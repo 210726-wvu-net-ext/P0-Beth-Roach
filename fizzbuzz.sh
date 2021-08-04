@@ -3,12 +3,18 @@
 n=1
 while [ $n -le 20 ]
 do
-if [ $(( n%23 )) -eq 0 ]
+if [ $((n%5)) -eq 0 ] &&  [ $(( n%3 )) -eq 0 ]
 then
-   echo "Fizz"
+    echo "$n FizzBuzz"
+    
+elif [ $(( n%3 )) -eq 0 ]
+then
+   echo "$n Fizz"
+
 elif [ $((n%5)) -eq 0 ]
 then    
-    echo "Buzz"
+    echo "$n Buzz"
+
 fi
    #n=$(( n+1 ))
    (( n++ ))

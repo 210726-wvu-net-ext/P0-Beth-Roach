@@ -1,14 +1,15 @@
 #Arithmatic shell script
 
-read -p "Enter Number:" number
+#read -p "Enter Number:" number
 
-test=`expr $number % 2`
-if [ $test -eq 0 ]
-then
-    echo "$number is even"
-else
-    echo "$number is odd"
-fi
+#test=`expr $number % 2`
+#if [ $test -eq 0 ]
+#then
+    #echo "$number is even"
+#else
+    #echo "$number is odd"
+#fi
+
 
 
 
