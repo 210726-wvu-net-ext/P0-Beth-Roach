@@ -6,10 +6,13 @@ Namespace ProgrammingBasics
     {
     static void Main(string[] args)
     {
-        long a = 10;
+        //long a = 10;
         //int b = (long) a; // explicit conversion
         //int b = long.Parse(a); //explicit conversion
-        int b = Convert.ToInt64(a); //explicit conversion
+       // int b = Convert.ToInt64(a); //explicit conversion
+        int x = int.MaxValue; 
+        short y = short.TryParse(x);
+        Console.WriteLine(y);
     }
     }
 }
