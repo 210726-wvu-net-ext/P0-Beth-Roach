@@ -1,0 +1,16 @@
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\bin\Debug\net5.0\ProgBasics.exe
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\bin\Debug\net5.0\ProgBasics.deps.json
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\bin\Debug\net5.0\ProgBasics.runtimeconfig.json
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\bin\Debug\net5.0\ProgBasics.runtimeconfig.dev.json
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\bin\Debug\net5.0\ProgBasics.dll
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\bin\Debug\net5.0\ref\ProgBasics.dll
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\bin\Debug\net5.0\ProgBasics.pdb
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\obj\Debug\net5.0\ProgBasics.csproj.AssemblyReference.cache
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\obj\Debug\net5.0\ProgBasics.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\obj\Debug\net5.0\ProgBasics.AssemblyInfoInputs.cache
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\obj\Debug\net5.0\ProgBasics.AssemblyInfo.cs
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\obj\Debug\net5.0\ProgBasics.csproj.CoreCompileInputs.cache
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\obj\Debug\net5.0\ProgBasics.dll
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\obj\Debug\net5.0\ref\ProgBasics.dll
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\obj\Debug\net5.0\ProgBasics.pdb
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgBasics\obj\Debug\net5.0\ProgBasics.genruntimeconfig.cache

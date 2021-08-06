@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 
-namespace ProgrammingBasics
+namespace ProgBasics
 {
-    public class Program
+    class Program
     {
         static void Main(string[] args)
         {

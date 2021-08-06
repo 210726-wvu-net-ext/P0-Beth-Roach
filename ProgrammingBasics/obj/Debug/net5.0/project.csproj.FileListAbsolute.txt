@@ -3,3 +3,14 @@ C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\obj\Deb
 C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\obj\Debug\net5.0\project.AssemblyInfoInputs.cache
 C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\obj\Debug\net5.0\project.AssemblyInfo.cs
 C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\obj\Debug\net5.0\project.csproj.CoreCompileInputs.cache
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\bin\Debug\net5.0\project.exe
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\bin\Debug\net5.0\project.deps.json
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\bin\Debug\net5.0\project.runtimeconfig.json
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\bin\Debug\net5.0\project.runtimeconfig.dev.json
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\bin\Debug\net5.0\project.dll
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\bin\Debug\net5.0\ref\project.dll
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\bin\Debug\net5.0\project.pdb
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\obj\Debug\net5.0\project.dll
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\obj\Debug\net5.0\ref\project.dll
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\obj\Debug\net5.0\project.pdb
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\obj\Debug\net5.0\project.genruntimeconfig.cache
