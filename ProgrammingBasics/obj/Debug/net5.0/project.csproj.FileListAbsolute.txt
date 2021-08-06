@@ -1,0 +1,5 @@
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\obj\Debug\net5.0\project.csproj.AssemblyReference.cache
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\obj\Debug\net5.0\project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\obj\Debug\net5.0\project.AssemblyInfoInputs.cache
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\obj\Debug\net5.0\project.AssemblyInfo.cs
+C:\Users\broac\OneDrive\Desktop\Revature\P0-Beth-Roach\ProgrammingBasics\obj\Debug\net5.0\project.csproj.CoreCompileInputs.cache

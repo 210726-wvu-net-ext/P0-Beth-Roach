@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\broac\\OneDrive\\Desktop\\Revature\\P0-Beth-Roach\\ProgrammingBasics\\Arrays.csproj",
-      "projectName": "Arrays",
-      "projectPath": "C:\\Users\\broac\\OneDrive\\Desktop\\Revature\\P0-Beth-Roach\\ProgrammingBasics\\Arrays.csproj",
+      "projectUniqueName": "C:\\Users\\broac\\OneDrive\\Desktop\\Revature\\P0-Beth-Roach\\ProgrammingBasics\\project.csproj",
+      "projectName": "project",
+      "projectPath": "C:\\Users\\broac\\OneDrive\\Desktop\\Revature\\P0-Beth-Roach\\ProgrammingBasics\\project.csproj",
       "packagesPath": "C:\\Users\\broac\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\broac\\OneDrive\\Desktop\\Revature\\P0-Beth-Roach\\ProgrammingBasics\\obj\\",
       "projectStyle": "PackageReference",
