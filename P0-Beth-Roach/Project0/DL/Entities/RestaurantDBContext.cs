@@ -10,12 +10,12 @@ namespace DL.Entities
         {
         }
 
-        public RestaurantdbContext(DbContextOptions<RestaurantdbConstext> options)
+        public RestaurantdbContext(DbContextOptions<RestaurantdbContext> options)
             : base(options)
         {
         }
 
-        public virtual DbSet<Restaurants> Restaurant { get; set; }
+        public virtual DbSet<Restaurant> Restaurant { get; set; }
         //public virtual DbSet<Ratings> rating { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,8 +28,8 @@ namespace DL.Entities
                     .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
-                entity.Property(e=>e.rating)
-                      .HasColumnType("float");
+                /*entity.Property(e=>e.rating)
+                      .HasColumnType("float");*/
 
             });
 
