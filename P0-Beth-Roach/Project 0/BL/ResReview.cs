@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace BL
 {
-    public interface IPetBL
+    public interface ResReview
     {
-        List<Cat> ViewAllCats();
-        Cat AddACat(Cat cat);
-        Meal AddAMeal(Meal meal);
-        Cat SearchCatByName(string name);
+        List<Restaurant> ViewAllRestaurants();
+        Rating Ratings(Ratings newRating);
+        Details ViewDetails(Restaurant meal);
+        Restaurant SearchRestByName(string name);
     }
 }
