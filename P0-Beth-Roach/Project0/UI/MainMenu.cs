@@ -9,14 +9,14 @@ namespace UI
     public class MainMenu : IMenu
     {
         
-        private IPetBL _petbl;
-        public MainMenu(IPetBL bl)
+        private IRestaurantBL _restaurantbl;
+        public MainMenu(IRestaurantBL bl)
         {
-            _petbl = bl;
+            _restaurantbl = bl;
             Log.Logger=new LoggerConfiguration()
                             .MinimumLevel.Debug()
                             .WriteTo.Console()
-                            .WriteTo.File("../logs/petlogs.txt", rollingInterval:RollingInterval.Day)
+                            .WriteTo.File("../logs/restaurantlogs.txt", rollingInterval:RollingInterval.Day)
                             .CreateLogger();
             Log.Information("UI begining");
         }
@@ -26,12 +26,12 @@ namespace UI
             bool repeat = true;
             do
             {
-                Console.WriteLine("Welcome to Cat Manager!");
+                Console.WriteLine("Welcome to Restaurant Rater!");
                 Console.WriteLine("[0] Exit");
-                Console.WriteLine("[1] Add a cat");
-                Console.WriteLine("[2] Feed a cat");
-                Console.WriteLine("[3] View all cats");
-                Console.WriteLine("[4] Search for a cat");
+                Console.WriteLine("[1] Search for a Restaurant");
+                Console.WriteLine("[2] Add a Rating");
+                Console.WriteLine("[3] View all Ratings");
+                
 
                 switch(Console.ReadLine())
                 {
@@ -41,34 +41,31 @@ namespace UI
                     break;
 
                     case "1":
-                        AddACat();
+                        SearchRestaurants();
                     break;
 
                     case "2":
-                        FeedACat();
+                        AddaRating();
                     break;
 
                     case "3":
-                        ViewAllCats();
+                        ViewAllRestaurants();
                     break;
 
-                    case "4":
-                        SearchCatByName();
-                    break;
 
                     default:
-                        Console.WriteLine("We don't understand what you're doing");
+                        Console.WriteLine("Try again");
                     break;
                 }
             } while(repeat);
         }
 
-        private void AddACat() 
+        private void SearchRestaurants() 
         {
             string input;
-            Cat catToAdd;
+            Restaurant searchRestaurants;
 
-            Console.WriteLine("Enter details for the cat to add");
+            Console.WriteLine("Enter Restaurant Name");
             
             do
             {
@@ -78,38 +75,35 @@ namespace UI
             } while(String.IsNullOrWhiteSpace(input));
 
 
-            catToAdd = new Cat(input);
-            catToAdd = _petbl.AddACat(catToAdd);
-
-            Console.WriteLine($"{catToAdd.Name} was successfully added!");
+          
         }
-        private void FeedACat() 
+        private void AddaRating() 
         {
-            List<Cat> cats = _petbl.ViewAllCats();
-            string prompt = "Select a cat to feed";
-            Cat selectedCat = SelectACat(cats, prompt);
-            string foodType;
-            if(selectedCat is not null)
+            List<Restaurants> restaurants = _RestReviewbl.ViewAllRestaurants();
+            string prompt = "Select a Restaurant to rate";
+            restaurants selected = SelectARestaurant(restaurants, prompt);
+            string Rating;
+            if(selectedRestaurants is not null)
             {
-                Console.WriteLine("You selected " + selectedCat.Name);
+                Console.WriteLine("You selected " + selectedRestaurant.Name);
                 
                 do
                 {
-                    Console.WriteLine("What type of food do you want to feed them?");
+                    Console.WriteLine("Rating from 1 to 5?");
                     foodType = Console.ReadLine();
-                } while(String.IsNullOrWhiteSpace(foodType));
+                } while(String.IsNullOrWhiteSpace(Rating));
 
-                Meal mealToFeed = new Meal(selectedCat.Id, foodType);
+                Rating addedRating = new Rating(selectedRestaurant.Id, Rating);
 
                 try
                 {
-                    mealToFeed = _petbl.AddAMeal(mealToFeed);
-                    //Console.WriteLine("meal has been added! " + mealToFeed.Time);
-                    Log.Debug("meal has been added! " + mealToFeed.Time);
+                    updatedRating = _Ratingsbl.Rating(Rating);
+                   
+                    Log.Debug("Your Rating has been added ");
                 }
                 catch (Exception ex)
                 {
-                    Log.Error(ex, "Cat wasn't been fed, something wrong happened");
+                    Log.Error(ex, "Please enter a valid rating.");
                     //Console.WriteLine(ex);
                 }
                 finally{
@@ -118,60 +112,34 @@ namespace UI
             }
         }
 
-        private void ViewAllCats() 
+        private void ViewAllRestaurants() 
         {
-            List<Cat> cats = _petbl.ViewAllCats();
-            foreach(Cat cat in cats)
+            List<Restaurant> restaurants = _RestReviewbl.ViewAllRestaurants();
+            foreach(Restaurant restaurant in restaurants)
             {
-                var fbmi= HealthStatus.Fbmi(cat.ribcage, cat.leglength);
-                Console.WriteLine($"{cat.Name}");
-                Console.WriteLine($"{HealthStatus.CatHealth(fbmi)}");
+                var rating= Ratings.Rating(restaurant.rating);
+                Console.WriteLine($"{Restaurant.Name}");
+                Console.WriteLine($"{Restaurant.Cost}");
+                Console.WriteLine($"{Restaurant.TypeofFood}");
+                Console.WriteLine($"{Restaurant.rating}");
                 Console.WriteLine("-----------------------------------------");
             }
         }
 
-        private Cat SelectACat(List<Cat> cats, string prompt)
-        {
-            Console.WriteLine(prompt);
-
-            int selection;
-            bool valid = false;
-
-            do {
-                //loops through the cats list and print the names
-                for(int i = 0; i < cats.Count; i++)
-                {
-                    Console.WriteLine($"[{i}] {cats[i].Name}");
-                }
-
-                //trying to parse user input into integer
-                //capture the bool return val in valid variable
-                //and the parsed integer in selection
-                valid = int.TryParse(Console.ReadLine(), out selection);
-
-                //this means that the parsing to integer has been successful and is within list's range
-                if(valid && (selection >= 0 && selection < cats.Count))
-                {
-                    return cats[selection];
-                }
-
-                Console.WriteLine("Enter a valid number");
-            } while(true);
-        }
-
+        
         private void SearchCatByName()
         {
             string input;
-            Console.WriteLine("Enter the name of the cat to search: ");
+            Console.WriteLine("Enter the name of the Restaurant to search: ");
             input = Console.ReadLine();
 
-            Cat foundCat = _petbl.SearchCatByName(input);
-            if(foundCat.Name is null)
+            Restaurant foundRestaurant = _RestReviewbl.SearchRestaurantByName(input);
+            if(foundRestaurant.Name is null)
             {
                 Console.WriteLine($"{input} is missing, please return them asap :'(");
             }
             else {
-                Console.WriteLine("We found the cat! {0}", foundCat.Name);
+                Console.WriteLine("We found the Restaurant! {0}", foundRestaurant.Name);
             }
         }
     }

@@ -5,56 +5,31 @@ using System.Linq;
 
 namespace DL
 {
-    public class PetRepo : IPetRepo
+    public class RestRepo : IRestRepo
     {
-        private petdbContext _context;
-        public PetRepo(petdbContext context)
+        private RestaurantdbContext _context;
+        public RestRepo(RestaurantdbContext context)
         {
             _context = context;
         }
 
-        public List<Models.Cat> GetAllCats()
+        public List<Models.Restaurant> GetAllRestaurants()
         {
-            return _context.Cats.Select(
-                cat => new Models.Cat(cat.Id, cat.Name, cat.ribcage, cat.leglength)
+            return _context.Restaurant.Select(
+                Restaurant => new Models.Restaurant(Restaurant.Id, Restaurant.Name, Restaurant.Cost, Restaurant.Ratings)
             ).ToList();
         }
 
-        public Models.Cat AddACat(Models.Cat cat)
+
+        public Models.Restaurant SearchRestaurantByName(string name)
         {
-            _context.Cats.Add(
-                new Entities.Cat{
-                    Name = cat.Name
-                }
-            );
-            _context.SaveChanges();
-
-            return cat;
-        }
-
-        public Models.Meal AddAMeal(Models.Meal meal)
-        {
-            _context.Meals.Add(
-                new Entities.Meal {
-                    Time = meal.Time,
-                    FoodType = meal.FoodType,
-                    CatId = meal.CatId
-                }
-            );
-            _context.SaveChanges();
-
-            return meal;
-        }
-
-        public Models.Cat SearchCatByName(string name)
-        {
-            Entities.Cat foundCat =  _context.Cats
-                .FirstOrDefault(cat => cat.Name == name);
-            if(foundCat != null)
+            Entities.Restaurant foundRestaurant =  _context.Restaurant
+                .FirstOrDefault(Restaurant => Restaurant.Name == name);
+            if(foundRestaurant != null)
             {
-                return new Models.Cat(foundCat.Id, foundCat.Name,foundCat.ribcage ,foundCat.leglength);
+                return new Models.Restaurant(foundRestaurant.Id, foundRestaurant.Name, foundRestaurant.Cost, foundRestaurant.Ratings);
             }
-            return new Models.Cat();
+            return new Models.Restaurant();
         }        
     }
 }

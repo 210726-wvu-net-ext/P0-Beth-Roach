@@ -9,7 +9,7 @@ namespace DL.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public float Ratings { get; set; }
-        public string Details { get; set; }
+        public string TypeofFood { get; set; }
         public string Cost { get; set; }
         
     }

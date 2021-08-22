@@ -11,16 +11,14 @@ var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
     .Build();
 
-string connectionString = configuration.GetConnectionString("petdb");
+string connectionString = configuration.GetConnectionString("Restauranttdb");
 
-DbContextOptions<petdbContext> options = new DbContextOptionsBuilder<petdbContext>()
+DbContextOptions<RestaurantdbContext> options = new DbContextOptionsBuilder<RestaurantdbContext>()
     .UseSqlServer(connectionString)
     .Options;
 
-var context = new petdbContext(options);
+var context = new RestaurantdbContext(options);
 
-HealthStatus status;
-var obj=status.getInstance;
 
-IMenu menu = new MainMenu(new PetBL(new PetRepo(context)));
+IMenu menu = new MainMenu(new RestaurantBL(new RestaurantRepo(context)));
 menu.Start();
