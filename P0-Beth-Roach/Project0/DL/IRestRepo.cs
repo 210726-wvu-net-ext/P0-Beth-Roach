@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-
 using Models;
 
 namespace DL
@@ -8,7 +7,7 @@ namespace DL
     {
         List<Restaurant> GetAllRestaurant();
 
-        BL.Rating AddARating(Ratings Rating);
+        Ratings AddARating(Rating Rating);
 
         Restaurant SearchRestByName(string name);
     }
