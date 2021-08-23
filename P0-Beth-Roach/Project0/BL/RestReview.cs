@@ -4,23 +4,26 @@ using System.Collections.Generic;
 
 namespace BL
 {
-    public class ResReview : RestReview
+    public class RestReview : ResReview
     {
         private IRestRepo _repo;
 
-        public ResReview(IRestRepo repo)
+        public RestReview(IRestRepo repo)
         {
             _repo = repo;
         }
         
-        public List<Restaurant> ViewAllRestaurant()
+        public List<Restaurant> ViewAllRestaurants()
         {
-            return _repo.GetAllRestaurant();
+            return _repo.GetAllRestaurants();
         }
-
-        public Restaurant SearchRestaurantByName(string name)
+        public ResReview Rating()
         {
-            return _repo.SearchRestaurantByName(name);
+            return _repo.Rating();
+        }
+        public Restaurant SearchRestByName(string name)
+        {
+            return _repo.SearchRestByName(name);
         }
     }
 }

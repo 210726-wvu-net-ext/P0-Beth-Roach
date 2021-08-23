@@ -4,7 +4,7 @@ using System;
 namespace BL
 {
          
-    public static double Ratings(double newRating, double totalRatings, double numberOfRatings)
+    public static double Rating(double newRating, double totalRatings, double numberOfRatings)
     {
             
             Console.Readline(newRating);
