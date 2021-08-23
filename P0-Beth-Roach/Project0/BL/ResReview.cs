@@ -6,8 +6,8 @@ namespace BL
     public interface ResReview
     {
         List<Restaurant> ViewAllRestaurants();
-        Rating Ratings(Ratings newRating);
-        Details ViewDetails(Restaurant meal);
+        Ratings Rating(Ratings newRating);
+        //Details ViewDetails(Restaurant meal);
         Restaurant SearchRestByName(string name);
     }
 }

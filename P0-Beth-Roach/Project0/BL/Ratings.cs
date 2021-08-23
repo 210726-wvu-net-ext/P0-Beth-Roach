@@ -4,7 +4,8 @@ using System;
 namespace BL
 {
          
-    public static double Ratings(double newRating, double totalRatings, double numberOfRatings){
+    public static double Ratings(double newRating, double totalRatings, double numberOfRatings)
+    {
             
             Console.Readline(newRating);
             int rating = 0;
@@ -18,5 +19,6 @@ namespace BL
             }
             else
                 throw new ArgumentException("Rating must be a valid number");
-        } 
+    }
+} 
     
