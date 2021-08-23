@@ -1,10 +1,9 @@
 using System;
-using Models;
-using DL;
 
-namespace BL
+
+namespace Models
 {
-    public class Rating
+    public class Ratings
      {
         public static double Ratings(double newRating, double totalRatings, double numberOfRatings)
          {
@@ -23,5 +22,4 @@ namespace BL
                 throw new ArgumentException("Rating must be a valid number");
          }
     }
-} 
-    
+}

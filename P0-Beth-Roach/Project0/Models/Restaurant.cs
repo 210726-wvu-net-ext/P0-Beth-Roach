@@ -13,15 +13,13 @@ namespace Models
         public Restaurant(int id, string name, float rating, string Cost) : this(name)
         {
             this.Id = id;
-            this.rating=rating;
             
         }
         public int Id {get; set;}
         public string Name {get;set;}
-        public float rating { get; set; }
 
         public string Cost { get; set; }
     
     }
-
+    
 }

@@ -17,9 +17,9 @@ namespace BL
         {
             return _repo.GetAllRestaurants();
         }
-        public Ratings Rating()
+        public Ratings Ratings()
         {
-            return _repo.Rating();
+            return _repo.Ratings();
         }
         public Restaurant SearchRestByName(string name)
         {
