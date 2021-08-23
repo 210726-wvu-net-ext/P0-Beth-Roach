@@ -7,7 +7,7 @@ namespace DL
     {
         List<Restaurant> GetAllRestaurant();
 
-        Ratings AddARating(Rating Rating);
+        //Ratings AddARating(Rating Rating);
 
         Restaurant SearchRestByName(string name);
     }
