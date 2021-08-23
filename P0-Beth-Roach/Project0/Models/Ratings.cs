@@ -3,7 +3,7 @@ using System;
 
 namespace Models
 {
-    public class Ratings
+    public class Rating
      {
         public static double Ratings(double newRating, double totalRatings, double numberOfRatings)
          {
