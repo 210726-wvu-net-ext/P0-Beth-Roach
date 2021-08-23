@@ -1,14 +1,14 @@
 using System;
-//using DL;
+
 
 namespace BL
 {
          
-    public static double Rating(double newRating, double totalRatings, double numberOfRatings)
+    public static double Ratings(double newRating, double totalRatings, double numberOfRatings)
     {
             
             Console.Readline(newRating);
-            int rating = 0;
+            double rating = 0;
             totalRatings = newRating + rating;
             numberOfRatings = count.newRating;
             if(newRating>0 && totalRatings>0 && numberOfRatings>0)

@@ -17,7 +17,7 @@ namespace BL
         {
             return _repo.GetAllRestaurants();
         }
-        public ResReview Rating()
+        public Ratings Rating()
         {
             return _repo.Rating();
         }

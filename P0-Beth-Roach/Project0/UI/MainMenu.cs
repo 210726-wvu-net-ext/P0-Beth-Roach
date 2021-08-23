@@ -82,7 +82,7 @@ namespace UI
             List<Restaurants> restaurants = _RestReviewbl.ViewAllRestaurants();
             string prompt = "Select a Restaurant to rate";
             restaurants selected = SelectARestaurant(restaurants, prompt);
-            string Rating;
+            double Rating;
             if(selectedRestaurants is not null)
             {
                 Console.WriteLine("You selected " + selectedRestaurant.Name);
@@ -90,7 +90,7 @@ namespace UI
                 do
                 {
                     Console.WriteLine("Rating from 1 to 5?");
-                    foodType = Console.ReadLine();
+                    Rating = Console.ReadLine();
                 } while(String.IsNullOrWhiteSpace(Rating));
 
                 Rating addedRating = new Rating(selectedRestaurant.Id, Rating);
@@ -121,22 +121,22 @@ namespace UI
                 Console.WriteLine($"{Restaurant.Name}");
                 Console.WriteLine($"{Restaurant.Cost}");
                 Console.WriteLine($"{Restaurant.TypeofFood}");
-                Console.WriteLine($"{Restaurant.rating}");
+                Console.WriteLine($"{Restaurant.aveRating}");
                 Console.WriteLine("-----------------------------------------");
             }
         }
 
         
-        private void SearchCatByName()
+        private void SearchRestByName()
         {
             string input;
             Console.WriteLine("Enter the name of the Restaurant to search: ");
             input = Console.ReadLine();
 
-            Restaurant foundRestaurant = _RestReviewbl.SearchRestaurantByName(input);
+            Restaurant foundRestaurant = _RestReviewbl.SearchRestByName(input);
             if(foundRestaurant.Name is null)
             {
-                Console.WriteLine($"{input} is missing, please return them asap :'(");
+                Console.WriteLine($"{input} is missing, please try again");
             }
             else {
                 Console.WriteLine("We found the Restaurant! {0}", foundRestaurant.Name);
