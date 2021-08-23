@@ -13,7 +13,7 @@ namespace DL
             _context = context;
         }
 
-        public List<Models.Restaurant> GetAllRestaurants()
+        public List<Models.Restaurant> GetAllRestaurant()
         {
             return _context.Restaurant.Select(
                 Restaurant => new Models.Restaurant(Restaurant.Id, Restaurant.Name, Restaurant.Cost, Restaurant.Ratings)
@@ -21,7 +21,7 @@ namespace DL
         }
 
 
-        public Models.Restaurant SearchRestaurantByName(string name)
+        public Models.Restaurant SearchRestByName(string name)
         {
             Entities.Restaurant foundRestaurant =  _context.Restaurant
                 .FirstOrDefault(Restaurant => Restaurant.Name == name);
