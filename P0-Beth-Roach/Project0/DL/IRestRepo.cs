@@ -6,7 +6,7 @@ namespace DL
 {
     public interface IRestRepo
     {
-        List<Restaurant> GetAllRestaurant();
+        List<Restaurant> GetAllRestaurants();
 
         //Rating AddARating(Rating Rating);
 

@@ -15,35 +15,7 @@ using System.Diagnostics;
 
 namespace RestaurantTest;
 
-[DebuggerDisplay("{GetDebuggerDisplay(),nq}")]
-public class NewBaseType
-{
-    [Fact]
-
-    public void GetAllRestaurantsShouldGetAllRestaurants()
-
-    {
-
-        using (var context = new Entity.RestaurantdbContext(options))
-
-        {
-
-            IRestRepo _repo = new RestRepo(context);
-
-
-
-            var cats = _repo.GetAllRestaurants();
-
-
-
-            object p = Assert.Equal(2, Restaurants.Count);
-
-        }
-
-    }
-}
-
-[DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
+//[DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
 public class RepoTest : NewBaseType
 
 { 
@@ -62,15 +34,11 @@ Seed();
 
 }
 
-    private string GetDebuggerDisplay()
-    {
-        return ToString();
-    }
+    private string GetDebuggerDisplay() => ToString();
+}
 
 
 
 
-
- 
 
  
