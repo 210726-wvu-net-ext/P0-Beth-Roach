@@ -17,10 +17,10 @@ namespace BL
         {
             return _repo.GetAllRestaurants();
         }
-        public Rating Rating()
+        /*public Rating Rating()
         {
             return _repo.Rating();
-        }
+        }*/
         public Restaurant SearchRestByName(string name)
         {
             return _repo.SearchRestByName(name);

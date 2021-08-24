@@ -6,13 +6,16 @@ namespace BL
 {
     public class Rating
      {
-        public static int Ratings(int newRating, int totalRatings, int numberOfRatings)
+        public static double Ratings(double newRating, double totalRatings, double numberOfRatings)
          {
             
-            Console.ReadLine(newRating);
-            int rating = 0;
+            newRating = Console.ReadLine();
+            double rating = 0;
             totalRatings = newRating + rating;
-            numberOfRatings = newRating.Count();
+            if (newRating>0)
+            {
+                numberOfRatings++;
+            }
             if(newRating>0 && totalRatings>0 && numberOfRatings>0)
             {
                

@@ -13,7 +13,7 @@ namespace DL
             _context = context;
         }
 
-        public List<Models.Restaurant> GetAllRestaurant()
+        public List<Models.Restaurant> GetAllRestaurants()
         {
             return _context.Restaurant.Select(
                 Restaurant => new Models.Restaurant(Restaurant.Id, Restaurant.Name, Restaurant.Cost, Restaurant.Ratings)
