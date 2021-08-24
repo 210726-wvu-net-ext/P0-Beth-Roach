@@ -12,7 +12,7 @@ namespace BL
             Console.ReadLine(newRating);
             double rating = 0;
             totalRatings = newRating + rating;
-            numberOfRatings = count.newRating;
+            numberOfRatings = newRating.Count;
             if(newRating>0 && totalRatings>0 && numberOfRatings>0)
             {
                

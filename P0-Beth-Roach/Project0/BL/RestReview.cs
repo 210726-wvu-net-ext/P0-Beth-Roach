@@ -8,7 +8,7 @@ namespace BL
     {
         private IRestRepo _repo;
 
-        public RestReview(IRestRepo repo)
+        public RestReview(RestRepo repo)
         {
             _repo = repo;
         }
