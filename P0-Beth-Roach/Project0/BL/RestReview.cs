@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BL
 {
-    public class RestReview : ResReview
+    public class RestReview : IRestReview
     {
         private IRestRepo _repo;
 
@@ -17,13 +17,17 @@ namespace BL
         {
             return _repo.GetAllRestaurants();
         }
-        /*public Rating Rating()
-        {
-            return _repo.Rating();
-        }*/
         public Restaurant SearchRestByName(string name)
         {
             return _repo.SearchRestByName(name);
+        }
+        public Restaurant review()
+        {
+            return review();
+        }
+        public user addUserLogin()
+        {
+            return addUserLogin();
         }
     }
 }

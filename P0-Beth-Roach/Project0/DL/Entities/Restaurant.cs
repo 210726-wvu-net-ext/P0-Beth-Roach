@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DL.Entities
+﻿namespace DL.Entities
 {
     public partial class Restaurant
     {

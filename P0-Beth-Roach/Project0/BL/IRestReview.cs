@@ -3,10 +3,11 @@ using System.Collections.Generic;
 
 namespace BL
 {
-    public interface ResReview
+    public interface IRestReview
     {
         List<Restaurant> ViewAllRestaurants();
-        //Rating Rating(Rating newRating);
         Restaurant SearchRestByName(string name);
+        Restaurant review();
+        user addUserLogin();
     }
 }

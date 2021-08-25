@@ -1,4 +1,3 @@
-using Models;
 using DL.Entities;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +7,15 @@ namespace DL
 {
     public class userRepo : IUserRepo
     {
-        private UserdbContext _context;
+        private UserdbContext _Context;
         public userRepo(UserdbContext context)
         {
-            _context = context;
+            _Context = context;
         }
 
         public List<Models.Users> GetAllUsers()
         {
-            return _context.Users.Select(
+            return _Context.Users.Select(
                 Users => new Models.Users(Users.Id, Users.Name)
             ).ToList();
         }
@@ -24,14 +23,15 @@ namespace DL
 
         public Models.Users SearchUsers(string name)
         {
-            Entities.UserdbContext foundUser =  _context.Users
+            Entities.Users foundUser =  _Context.Users
             
-            .FirstOrDefault(User => Users.Name == name);
+            .FirstOrDefault(u => u.Name == name);
             if(foundUser != null)
             {
                 return new Models.Users(foundUser.Id, foundUser.Name);
             }
             return new Models.Users();
-        }        
+        } 
+               
     }
 }

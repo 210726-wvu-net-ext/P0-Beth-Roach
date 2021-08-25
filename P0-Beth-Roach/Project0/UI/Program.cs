@@ -20,5 +20,5 @@ DbContextOptions<RestaurantdbContext> options = new DbContextOptionsBuilder<Rest
 var context = new RestaurantdbContext(options);
 
 
-IMenu menu = new MainMenu(new RestaurantBL(new RestaurantRepo(context)));
+IMenu menu = new MainMenu(new RestReview(new RestRepo(context)));
 menu.Start();

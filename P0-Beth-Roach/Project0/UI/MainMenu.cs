@@ -1,5 +1,6 @@
 using Models;
 using BL;
+using DL;
 using System;
 using System.Collections.Generic;
 using Serilog;
@@ -9,10 +10,10 @@ namespace UI
     public class MainMenu : IMenu
     {
         
-        private IRestaurantBL _restaurantbl;
-        public MainMenu(IRestaurantBL bl)
+        private IRestReview _RestReview;
+        public MainMenu(IRestReview restReview)
         {
-            _restaurantbl = bl;
+            _RestReview = restReview;
             Log.Logger=new LoggerConfiguration()
                             .MinimumLevel.Debug()
                             .WriteTo.Console()
@@ -47,7 +48,7 @@ namespace UI
                     break;
 
                     case "2":
-                        AddaRating();
+                        addAReview();
                     break;
 
                     case "3":
@@ -55,7 +56,7 @@ namespace UI
                     break;
 
                     case "4":
-                        addUser();
+                        addUserLogin();
                     break;
 
                     case "5":
@@ -87,52 +88,46 @@ namespace UI
 
           
         }
-        private void AddaRating() 
+        private void addAReview() 
         {
-            List<Restaurants> restaurants = _RestReviewbl.ViewAllRestaurants();
-            string prompt = "Select a Restaurant to rate";
-            restaurants selected = SelectARestaurant(restaurants, prompt);
-            double Rating;
-            if(selectedRestaurants is not null)
+            List<Restaurant> restaurants = _RestReview.ViewAllRestaurants();
+            string prompt = "Select a Restaurant to Review";
+            string name = Console.ReadLine();
+            string review;
+            if(name is not null)
             {
-                Console.WriteLine("You selected " + selectedRestaurant.Name);
+                Console.WriteLine("You selected {Name}");
                 
                 do
                 {
-                    Console.WriteLine("Rating from 1 to 5?");
-                    Rating = Console.ReadLine();
-                } while(String.IsNullOrWhiteSpace(Rating));
+                    Console.WriteLine("Please enter a review");
+                    review = Console.ReadLine();
+                } while(String.IsNullOrWhiteSpace(review));
 
-                Rating addedRating = new Rating(selectedRestaurant.Id, Rating);
-
-                try
+               /* try
                 {
-                    updatedRating = _Ratingsbl.Rating(Rating);
+                    review = _RestReview.review();
                    
-                    Log.Debug("Your Rating has been added ");
+                    Log.Debug("Your Review has been added ");
                 }
                 catch (Exception ex)
                 {
-                    Log.Error(ex, "Please enter a valid rating.");
+                    Log.Error(ex, "Please enter a valid review.");
                     //Console.WriteLine(ex);
                 }
                 finally{
                     Log.CloseAndFlush();
-                }
+                }*/
             }
         }
 
         private void ViewAllRestaurants() 
         {
-            List<Restaurant> restaurants = _RestReviewbl.ViewAllRestaurants();
+            List<Restaurant> restaurants = _RestReview.ViewAllRestaurants();
             foreach(Restaurant restaurant in restaurants)
             {
-                var rating= Ratings.Rating(restaurant.rating);
-                Console.WriteLine($"{Restaurant.Name}");
-                Console.WriteLine($"{Restaurant.Cost}");
-                Console.WriteLine($"{Restaurant.TypeofFood}");
-                Console.WriteLine($"{Restaurant.aveRating}");
-                Console.WriteLine("-----------------------------------------");
+                Console.WriteLine($"{restaurant.Name}");
+                
             }
         }
 
@@ -143,7 +138,7 @@ namespace UI
             Console.WriteLine("Enter the name of the Restaurant to search for: ");
             input = Console.ReadLine();
 
-            Restaurant foundRestaurant = _RestReviewbl.SearchRestByName(input);
+            Restaurant foundRestaurant = _RestReview.SearchRestByName(input);
             if(foundRestaurant.Name is null)
             {
                 Console.WriteLine($"{input} is missing, please try again");
@@ -152,22 +147,34 @@ namespace UI
                 Console.WriteLine("We found the Restaurant! {0}", foundRestaurant.Name);
             }
          }
-        private void addUser()
+        private void addUserLogin()
         {
-            User  addedUser = _useradminbl.addUser(input);
-            if(addedUser.userName is null || addedUser.password is null)
-                {
-                    Console.WriteLine($"You did not enter in a username or password, please try again.");
-                }
-            else
-                {
-                    Console.WriteLine($"User {userName} was added! Welcome to the world of restaurant review!");
-                }
+            string userName = "0";
+            string pw;
+            user newUser;
+            do
+            {
+            Console.WriteLine($"Enter new Username: ");
+            string uname = Console.ReadLine();
+            Console.WriteLine($"Enter a password: ");
+            string PW = Console.ReadLine();
+            Console.WriteLine($"Username is {uname} and password is {PW}");
+            }while(String.IsNullOrWhiteSpace(userName));
+            newUser = new user();
+            newUser = _RestReview.addUserLogin();
         }
         
-        private void adminLogin()
+        public void adminLogin()
         {
-            bool IsValidLoginforAdmin(string username, string password);
+            bool repeat = true;
+            string username, password;
+            Console.WriteLine($"Enter username and Password");
+            Console.WriteLine("UserName: ");
+            username = Console.ReadLine();
+            Console.WriteLine("Password: ");
+            password = Console.ReadLine();
+            admin adminUser = new admin();
+            bool isValid = adminUser.Adminlogin(username, password);
             do
             {
                 Console.WriteLine($"Welcome Admin! Select what you want to do:");
@@ -194,8 +201,18 @@ namespace UI
                             Console.WriteLine("Try again");
                         break;
                     }
-            } while(repeat);
+            }while(repeat);
 
+        }
+        private void ViewAllUsers() 
+        {
+            List<user> allUser = _useradmin.ViewAllUsers();
+            foreach(Users u in ViewAllUsers)
+            {
+                Console.WriteLine($"{u.userName} {u.Password}");
+
+                Console.WriteLine("-----------------------------------------");
+            }
         }
         private void SearchUsers()
         {
@@ -203,7 +220,7 @@ namespace UI
                 Console.WriteLine("Enter the name of the User to search for: ");
                 input = Console.ReadLine();
 
-                Restaurant foundRestaurant = _RestReviewbl.SearchRestByName(input);
+                Restaurant foundRestaurant = _RestReview.SearchRestByName(input);
                 if(foundRestaurant.Name is null)
                     {
                         Console.WriteLine($"{input} is missing, please try again");

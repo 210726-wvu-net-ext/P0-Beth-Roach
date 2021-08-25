@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Models
 {
@@ -19,7 +20,16 @@ namespace Models
         }
         public int Id { get; set;}
         public string? Name { get;set;}
-    
+
+        public class FirstOrDefault
+        {
+            private Func<object, bool> p;
+
+            public FirstOrDefault(Func<object, bool> p)
+            {
+                this.p = p;
+            }
+        }
     }
     
 }
