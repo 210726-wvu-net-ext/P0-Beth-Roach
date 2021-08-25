@@ -13,5 +13,6 @@
             "database": "Restaurant",
             "username": "broac"
         }
-    ]
+    ],
+    "workbench.colorTheme": "Solarized Dark"
 }

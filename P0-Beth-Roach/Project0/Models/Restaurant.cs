@@ -10,15 +10,16 @@ namespace Models
             this.Name = name;
         }
     
-        public Restaurant(int id, string name, float rating, string Cost) : this(name)
+        public Restaurant(int id, string name, float Cost, string rating) : this(name)
         {
             this.Id = id;
             
         }
-        public int Id {get; set;}
-        public string Name {get;set;}
 
-        public string Cost { get; set; }
+        public int Id {get; set;}
+        public string? Name {get;set;}
+
+        public float? Cost { get; set; }
     
     }
     

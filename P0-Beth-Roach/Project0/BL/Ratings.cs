@@ -9,9 +9,11 @@ namespace BL
         public static double Ratings(double newRating, double totalRatings, double numberOfRatings)
          {
             
-            newRating = Console.ReadLine();
+            double v2 =newRating;
+            v2 = Console.ReadLine("");
             double rating = 0;
-            totalRatings = newRating + rating;
+            double v1 = totalRatings; 
+            v1 = newRating + rating;
             if (newRating>0)
             {
                 numberOfRatings++;

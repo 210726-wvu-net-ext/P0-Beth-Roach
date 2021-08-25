@@ -26,12 +26,14 @@ namespace UI
             bool repeat = true;
             do
             {
-                Console.WriteLine("Welcome to Restaurant Rater!");
+                //this application is written so that individuals can rate restaurants anonymously. 
+                Console.WriteLine("Welcome to Restaurant Raters Anonymous!");
                 Console.WriteLine("[0] Exit");
                 Console.WriteLine("[1] Search for a Restaurant");
                 Console.WriteLine("[2] Add a Rating");
                 Console.WriteLine("[3] View all Ratings");
-                
+                Console.WriteLine("[4] Add a User");
+                Console.WriteLine("[5] Admin login");
 
                 switch(Console.ReadLine())
                 {
@@ -50,6 +52,14 @@ namespace UI
 
                     case "3":
                         ViewAllRestaurants();
+                    break;
+
+                    case "4":
+                        addUser();
+                    break;
+
+                    case "5":
+                        adminLogin();
                     break;
 
 
@@ -128,9 +138,9 @@ namespace UI
 
         
         private void SearchRestByName()
-        {
+         {
             string input;
-            Console.WriteLine("Enter the name of the Restaurant to search: ");
+            Console.WriteLine("Enter the name of the Restaurant to search for: ");
             input = Console.ReadLine();
 
             Restaurant foundRestaurant = _RestReviewbl.SearchRestByName(input);
@@ -141,6 +151,67 @@ namespace UI
             else {
                 Console.WriteLine("We found the Restaurant! {0}", foundRestaurant.Name);
             }
+         }
+        private void addUser()
+        {
+            User  addedUser = _useradminbl.addUser(input);
+            if(addedUser.userName is null || addedUser.password is null)
+                {
+                    Console.WriteLine($"You did not enter in a username or password, please try again.");
+                }
+            else
+                {
+                    Console.WriteLine($"User {userName} was added! Welcome to the world of restaurant review!");
+                }
+        }
+        
+        private void adminLogin()
+        {
+            bool IsValidLoginforAdmin(string username, string password);
+            do
+            {
+                Console.WriteLine($"Welcome Admin! Select what you want to do:");
+                Console.WriteLine("[0] Exit");
+                Console.WriteLine("[1] Search for a User");
+                Console.WriteLine("[2] View all Users");
+
+                 switch(Console.ReadLine())
+                    {
+                        case "0":
+                            Console.WriteLine("Goodbye!");
+                            repeat = false;
+                        break;
+
+                        case "1":
+                            SearchUsers();
+                        break;
+
+                        case "2":
+                            ViewAllUsers();
+                        break;
+
+                        default:
+                            Console.WriteLine("Try again");
+                        break;
+                    }
+            } while(repeat);
+
+        }
+        private void SearchUsers()
+        {
+            string input;
+                Console.WriteLine("Enter the name of the User to search for: ");
+                input = Console.ReadLine();
+
+                Restaurant foundRestaurant = _RestReviewbl.SearchRestByName(input);
+                if(foundRestaurant.Name is null)
+                    {
+                        Console.WriteLine($"{input} is missing, please try again");
+                    }
+                else 
+                    {
+                        Console.WriteLine("We found the Restaurant! {0}", foundRestaurant.Name);
+                    }
         }
     }
 }
