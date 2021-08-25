@@ -180,7 +180,7 @@ namespace UI
                 Console.WriteLine($"Welcome Admin! Select what you want to do:");
                 Console.WriteLine("[0] Exit");
                 Console.WriteLine("[1] Search for a User");
-                Console.WriteLine("[2] View all Users");
+                //Console.WriteLine("[2] View all Users");
 
                  switch(Console.ReadLine())
                     {
@@ -193,9 +193,9 @@ namespace UI
                             SearchUsers();
                         break;
 
-                        case "2":
-                            ViewAllUsers();
-                        break;
+                        //case "2":
+                          //  ViewAllUsers();
+                        //break;
 
                         default:
                             Console.WriteLine("Try again");
@@ -204,16 +204,17 @@ namespace UI
             }while(repeat);
 
         }
-        private void ViewAllUsers() 
+        /*public string ViewAllUsers() 
         {
-            List<user> allUser = _useradmin.ViewAllUsers();
-            foreach(Users u in ViewAllUsers)
+            List<Users> allUser = _useradmin.ViewUsers();
+            foreach (Users Users in ViewAllUsers())
             {
-                Console.WriteLine($"{u.userName} {u.Password}");
+                Console.WriteLine($"{Users.Name}");
 
                 Console.WriteLine("-----------------------------------------");
+                //return Users.Name;
             }
-        }
+        }*/
         private void SearchUsers()
         {
             string input;

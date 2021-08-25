@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DL;
+using BL;
 namespace Models
 {
     public class user
